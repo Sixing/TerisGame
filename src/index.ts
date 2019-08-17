@@ -1,6 +1,8 @@
 import { SquarePageViewer } from "./core/viewer/SquarePageViewer";
 import $ from 'jquery'
 import { createTeris } from "./core/Teris";
+import { TerisRule } from "./core/TerisRule";
+import { MoveDirection } from "./core/Types";
 
 
 
@@ -12,29 +14,20 @@ teris.squares.forEach(sq => {
 
 
 $('#btn-down').click(() => {
-    teris.centerPoint = {
-        x: teris.centerPoint.x,
-        y: teris.centerPoint.y + 1
-    }
+    TerisRule.moveDirectly(teris, MoveDirection.down)
 })
 
 $('#btn-up').click(() => {
-    teris.centerPoint = {
+    TerisRule.move(teris, {
         x: teris.centerPoint.x,
         y: teris.centerPoint.y - 1
-    }
+    })
 })
 $('#btn-left').click(() => {
-    teris.centerPoint = {
-        x: teris.centerPoint.x - 1,
-        y: teris.centerPoint.y 
-    }
+    TerisRule.move(teris, MoveDirection.left)
 })
 $('#btn-right').click(() => {
-    teris.centerPoint = {
-        x: teris.centerPoint.x + 1,
-        y: teris.centerPoint.y 
-    }
+    TerisRule.move(teris, MoveDirection.right)
 })
 
 
