@@ -14,7 +14,7 @@ teris.squares.forEach(sq => {
 
 
 $('#btn-down').click(() => {
-    TerisRule.moveDirectly(teris, MoveDirection.down)
+    TerisRule.move(teris, MoveDirection.down)
 })
 
 $('#btn-up').click(() => {
@@ -29,6 +29,11 @@ $('#btn-left').click(() => {
 $('#btn-right').click(() => {
     TerisRule.move(teris, MoveDirection.right)
 })
+
+$('#rotateClock').click(() => {
+    TerisRule.rotate(teris)
+})
+
 
 
 // const sq = new Square();

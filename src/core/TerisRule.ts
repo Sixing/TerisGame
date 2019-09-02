@@ -73,6 +73,11 @@ export class TerisRule {
           x: teris.centerPoint.x + 1,
           y: teris.centerPoint.y 
         }
+      }else {
+        targetPoint = {
+          x: teris.centerPoint.x ,
+          y: teris.centerPoint.y - 1
+        }
       }
       return this.move(teris, targetPoint)
     }
@@ -88,6 +93,16 @@ export class TerisRule {
       if(!this.move(teris, direction)) {
         break
       }
+    }
+  }
+
+  static rotate(teris: SquareGroup):boolean {
+    const newShape = teris.afterRotateShape();
+    if(this.canIMove(newShape, teris.centerPoint)) {
+      teris.rotate()
+      return true
+    }else {
+      return false
     }
   }
 }
